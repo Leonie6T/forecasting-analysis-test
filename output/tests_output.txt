@@ -1,0 +1,19 @@
+Kruskal-Wallis: H=181.8, p=3.39e-40
+  superforecaster vs domain_expert: Mann-Whitney p=6.29e-13, Holm-adjusted p=6.29e-13, Cohen's d=-1.43
+  superforecaster vs general_public: Mann-Whitney p=2.91e-28, Holm-adjusted p=8.74e-28, Cohen's d=-2.57
+  domain_expert vs general_public: Mann-Whitney p=3.84e-22, Holm-adjusted p=7.69e-22, Cohen's d=-1.67
+
+Spearman (years_experience vs Brier) within group:
+  domain_expert: rho=0.120, p=0.290, n=80, years range 5-24
+  general_public: rho=0.144, p=0.070, n=160, years range 0-14
+  superforecaster: rho=0.234, p=0.072, n=60, years range 0-17
+
+OLS: brier ~ years + group (reference = domain_expert), HC3 robust SE
+                              Coef.  Std.Err.       z   P>|z|  [0.025  0.975]
+Intercept                    0.0549    0.0064  8.5166  0.0000  0.0423  0.0675
+C(group)[T.general_public]   0.0565    0.0061  9.2362  0.0000  0.0445  0.0684
+C(group)[T.superforecaster] -0.0158    0.0038 -4.1120  0.0000 -0.0233 -0.0083
+years                        0.0008    0.0004  1.8068  0.0708 -0.0001  0.0016
+R2=0.519
+
+Interaction model (years x group): slopes differ by group? F-test p=0.499

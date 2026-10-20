@@ -1,0 +1,28 @@
+CHECK 1: wave
+Rows by group x wave:
+wave                1     2
+group                      
+domain_expert    1609  1183
+general_public   3347  2235
+superforecaster  1237   873
+Mean Brier by group x wave:
+wave                  1       2
+group                          
+domain_expert    0.0680  0.0635
+general_public   0.1116  0.1184
+superforecaster  0.0462  0.0433
+Wave effect (forecast-level OLS, SE clustered by forecaster): coef=0.0018, p=0.557
+
+CHECK 2: question-level dependence
+          group   mean ci_forecaster_only    ci_two_way
+superforecaster 0.0449      0.0423-0.0477 0.0390-0.0514
+  domain_expert 0.0660      0.0622-0.0700 0.0580-0.0749
+ general_public 0.1142      0.1086-0.1199 0.1045-0.1250
+
+Mixed model brier ~ group, random intercepts forecaster + question:
+                              Coef. Std.Err.       z  P>|z|  [0.025 0.975]
+Intercept                     0.066    0.009   7.077  0.000   0.048  0.084
+C(group)[T.general_public]    0.048    0.011   4.217  0.000   0.026  0.071
+C(group)[T.superforecaster]  -0.021    0.014  -1.480  0.139  -0.049  0.007
+Group Var                     0.006                                       
+question Var                  0.021    0.030                              
